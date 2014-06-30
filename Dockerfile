@@ -7,6 +7,10 @@ RUN yum -y update
 RUN yum -y install bridge-utils wget dnsmasq build-essential tar
 
 
+# Install appropriate JDK
+RUN yum -y install java-1.7.0-openjdk.x86_64
+
+
 # Install Druid
 
 WORKDIR /root/druid/
@@ -16,5 +20,3 @@ RUN tar -vxf druid-services-*-bin.tar.gz
 RUN rm -rf druid-services-*-bin.tar.gz
 
 WORKDIR /root/druid/druid-services-0.6.121/
-
-
